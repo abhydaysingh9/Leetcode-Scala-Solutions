@@ -1,0 +1,13 @@
+object Solution {
+    def wordBreak(s: String, wordDict: List[String]): Boolean = {
+        var st=""
+        for(i<-s){
+            st+=i
+            if(wordDict.contains(st)){
+                st=""
+            }
+        }
+        if(st.length==0) return true
+        false
+    }
+}

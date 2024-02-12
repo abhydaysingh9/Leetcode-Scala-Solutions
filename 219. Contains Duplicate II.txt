@@ -1,0 +1,10 @@
+object Solution {
+    def containsNearbyDuplicate(nums: Array[Int], k: Int): Boolean = {
+        var numsmap=scala.collection.mutable.Map[Int,Int]()
+        for(i<-0 until nums.size){
+            if(numsmap.contains(nums(i)) && i-numsmap(nums(i)) <=k) return true
+            else numsmap(nums(i))=i
+        }
+        return false
+    }
+}

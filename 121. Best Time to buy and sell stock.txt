@@ -1,0 +1,11 @@
+object Solution {
+    def maxProfit(prices: Array[Int]): Int = {
+        var mini=Int.MaxValue
+        var maxi=0
+        for(i<- prices){
+            mini=math.min(mini,i)
+            maxi=math.max(maxi,i-mini)
+        }
+        maxi
+    }
+}

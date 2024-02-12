@@ -1,0 +1,16 @@
+object Solution {
+    def search(nums: Array[Int], target: Int): Int = {
+        var (idx,beg,mid,end)=(0,0,0,nums.length-1)
+        while(beg<=end){
+            mid=beg+(end-beg)/2
+            nums(mid) match{
+                case x if nums(mid) == target => return mid
+                case x if (nums(beg)<=nums(mid) && target>=nums(beg) && target<=nums(mid)) => end=mid-1
+                case x if nums(beg)<=nums(mid) => beg=mid+1
+                case x if target>=nums(mid)&&target<=nums(end) => beg=mid+1
+                case _ => end=mid-1
+            }
+        }
+        -1
+    }
+}

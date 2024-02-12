@@ -1,0 +1,16 @@
+object Solution {
+    def lengthOfLongestSubstring(s: String): Int = {
+        var mapper=Array.fill(256)(-1)
+        var count= 0
+        var l=0
+        for(i<-0 until s.length){
+            if(mapper(s(i))!= -1){
+                l=math.max(l,mapper(s(i))+1)
+            }
+            mapper(s(i))=i
+            count=math.max(count,i-l+1)
+        }
+        count
+        
+    }
+}

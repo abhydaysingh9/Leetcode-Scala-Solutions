@@ -1,0 +1,19 @@
+object Solution {
+    def longestConsecutive(nums: Array[Int]): Int = {
+        if(nums.length == 0) return 0
+        var numset=nums.toSet
+        var maxlength=0
+        for(i<- nums){
+            if(!numset.contains(i-1)){
+                var currlength=0
+                var currvar=i
+                while(numset.contains(currvar)){
+                     currlength += 1
+                    currvar+=1
+                }
+                maxlength=math.max(maxlength, currlength)
+            }
+        }
+        maxlength
+    }
+}

@@ -1,0 +1,29 @@
+object Solution {
+    def merge(nums1: Array[Int], m: Int, nums2: Array[Int], n: Int): Unit = {
+        var it1=m-1
+        var it2=n-1
+        var it3=m+n-1
+        while(it1>=0 && it2>=0){
+            if(nums1(it1)>nums2(it2)){
+                nums1(it3)=nums1(it1)
+                it3-=1
+                it1-=1
+            }
+            else{
+                nums1(it3)=nums2(it2)
+                it3-=1
+                it2-=1
+            }
+        }
+        while(it1>=0){
+            nums1(it3)=nums1(it1)
+                it3-=1
+                it1-=1
+        }
+        while(it2>=0){
+            nums1(it3)=nums2(it2)
+                it3-=1
+                it2-=1
+        }
+    }
+}

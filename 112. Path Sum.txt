@@ -1,0 +1,7 @@
+object Solution {
+    def hasPathSum(root: TreeNode, target: Int): Boolean = {
+        if(root == null) return false
+        if(target == root.value && root.left == null && root.right == null) return true
+        hasPathSum(root.left,target-root.value) || hasPathSum(root.right,target-root.value)
+    }
+}

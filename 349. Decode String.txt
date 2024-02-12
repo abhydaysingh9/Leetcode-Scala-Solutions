@@ -1,0 +1,29 @@
+object Solution {
+  import scala.collection.mutable
+
+  case class StackElem(times: Int, prevString: String)
+
+  def decodeString(s: String): String = {
+    val stack = new mutable.Stack[StackElem](s.length)
+
+    var number     = 0
+    var currString = ""
+
+    s.foreach {
+      case '[' =>
+        stack.push(StackElem(number, currString))
+        number     = 0
+        currString = ""
+        
+
+      case ']' =>
+        val StackElem(times, prevString) = stack.pop()
+        currString = prevString + (currString * times)
+
+      case d if d.isDigit => number = number * 10 + d.asDigit
+      case c              => currString += c
+    }
+
+    currString
+  }
+}

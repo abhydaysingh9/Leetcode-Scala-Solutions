@@ -1,0 +1,14 @@
+object Solution {
+    def searchInsert(nums: Array[Int], target: Int): Int = {
+        var start=0
+        var end=nums.length-1
+        var mid=end-(end-start)/2
+        while(start <= end){
+            mid=end-(end-start)/2
+            if(nums(mid)==target) return mid
+            else if(nums(mid)>target) end=mid-1
+            else start=mid+1
+        }
+        return start
+    }
+}

@@ -1,0 +1,17 @@
+object Solution {
+    def isValid(s: String): Boolean = {
+        val parentheses = Map('(' -> ')', '[' -> ']', '{' -> '}')
+        val stack = scala.collection.mutable.Stack[Char]()
+
+        for (ch <- s) {
+            if (parentheses.contains(ch)) {
+                stack.push(ch)
+            }
+            else {
+                if (stack.isEmpty) return false
+                if (!parentheses.get(stack.pop).contains(ch)) return false
+            }
+        }
+        stack.isEmpty
+    }
+}

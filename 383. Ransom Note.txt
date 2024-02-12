@@ -1,0 +1,10 @@
+object Solution {
+    def canConstruct(ransomNote: String, magazine: String): Boolean = {
+        for(i<-ransomNote){
+            if(magazine.count(_==i)<ransomNote.count(_==i)){
+                return false
+            }  
+        }
+        return true
+    }
+}

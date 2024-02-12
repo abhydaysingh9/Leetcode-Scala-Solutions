@@ -1,0 +1,8 @@
+object Solution {
+    def isAnagram(s: String, t: String): Boolean = {
+        var charMap=scala.collection.mutable.Map[Char,Int]().withDefaultValue(0)
+        s.foreach(charMap(_)+=1)
+        t.foreach(charMap(_)-=1)
+        charMap.values.filter(_!=0).isEmpty
+    }
+}

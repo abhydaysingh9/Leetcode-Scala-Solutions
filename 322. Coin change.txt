@@ -1,0 +1,20 @@
+import scala.collection.mutable.ArrayBuffer
+object Solution {
+    def coinChange(coins: Array[Int], amount: Int): Int = {
+        var minArray=ArrayBuffer.fill(amount+1)(Int.MaxValue)
+        minArray(0)=0
+        for(coin<-coins){
+            for(it <- coin to amount){
+                var currentMin=minArray(it)
+                var previousMin=minArray(it-coin)
+                if(minArray(it-coin)!=Int.MaxValue){
+                    previousMin+=1
+                }
+                minArray(it)=math.min(currentMin,previousMin)
+            }
+        }
+        print(minArray.mkString(" "))
+        if(minArray(amount)!=Int.MaxValue) minArray(amount) else -1
+        
+    }
+}
